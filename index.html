@@ -26,8 +26,8 @@
     </div>
 
     <!-- Background Music -->
-    <audio id="bgm" autoplay loop>
-        <source src="audio [music].mp3" type="audio/mpeg">
+    <audio id="bgm" loop volume="0.5">
+        <source src="audio%20%5Bmusic%5D.mp3" type="audio/mpeg">
     </audio>
 
     <script>
@@ -293,6 +293,7 @@
             
             scoreContainer.classList.add('hidden');
             ui.classList.remove('hidden');
+            document.getElementById('bgm').pause();
         }
 
         function onInput(e) {
@@ -308,6 +309,7 @@
                     scoreContainer.classList.remove('hidden');
                     scoreDisplay.innerText = score;
                     bird.flap();
+                    document.getElementById('bgm').play();
                     break;
                 case 1: // Playing -> Flap
                     bird.flap();
@@ -324,6 +326,7 @@
                         uiInstruction.innerText = "Click or Space to Start";
                         ui.classList.remove('hidden');
                         scoreContainer.classList.add('hidden');
+                        document.getElementById('bgm').currentTime = 0;
                     }
                     break;
             }
